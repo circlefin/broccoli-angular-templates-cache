@@ -80,7 +80,7 @@ BroccoliAngularTemplateCache.prototype.updateCache = function(srcDir, destDir) {
 	mkdirp.sync(path.dirname(dest));
 
 	var promise = new rsvp.Promise(function(resolvePromise, rejectPromise) {
-		recursive(src, function (err, files) {
+		recursive(src, self.options.ignore || [], function (err, files) {
 
 			var templates = [],
 			minify = self.options.minify || false,
