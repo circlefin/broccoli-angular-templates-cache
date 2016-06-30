@@ -35,6 +35,13 @@ path to source directory
 
 path to destination directory
 
+### ignore
+
+Type: `[string]`
+Default: `[]`
+
+File patterns to ignore when searching for templates.
+
 #### prepend
 Type: `String`
 Default: ``
@@ -53,7 +60,7 @@ Path fragment to remove from template path (from left)
 Type: `Object`
 Default: `false`
 
-Configs to pass on [html-minifier](https://github.com/kangax/html-minifier). 
+Configs to pass on [html-minifier](https://github.com/kangax/html-minifier).
 If ommitted, the HTML is kept untouched
 
 
