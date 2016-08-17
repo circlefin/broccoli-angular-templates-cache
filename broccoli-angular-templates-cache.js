@@ -6,6 +6,7 @@ htmlMin = require('html-minifier').minify,
 fs = require("fs"),
 mkdirp = require('mkdirp'),
 path = require("path");
+minimatch = require('minimatch');
 
 var reQuote = /'/g,
 escapedQuote = '\\\'',
@@ -88,6 +89,12 @@ BroccoliAngularTemplateCache.prototype.updateCache = function(srcDir, destDir) {
 			moduleName = self.options.moduleName,
 			firstFile = null,
 			filePath;
+
+			if (self.options.include) {
+				files = files.filter(function(file) {
+					return self.options.include.reduce((prev, current) => prev || minimatch(file.split('/').pop(), current), false);
+				});
+			}
 
 			_.each(files, function(file){
 				if(self.options.absolute){

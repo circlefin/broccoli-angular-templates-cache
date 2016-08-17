@@ -35,7 +35,14 @@ path to source directory
 
 path to destination directory
 
-### ignore
+#### include
+
+Type: `[string]`
+Default: `[]`
+
+File patterns to include when searching for templates. (Defaults to everything)
+
+#### ignore
 
 Type: `[string]`
 Default: `[]`
